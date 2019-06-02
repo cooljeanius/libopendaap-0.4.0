@@ -1,6 +1,7 @@
 SUBDIRS = authentication debug mdnsd
-INCLUDES = -I$(srcdir) -I$(srcdir)/debug
-AM_CFLAGS = -W -Wall -D_GNU_SOURCE
+ACLOCAL_AMFLAGS = -I m4
+AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/debug
+AM_CFLAGS = -Wall -Wextra -D_GNU_SOURCE
 
 lib_LTLIBRARIES = libopendaap.la
 libopendaap_la_SOURCES = client.c \

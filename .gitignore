@@ -1,0 +1,17 @@
+.DS_Store
+*.o
+*.lo
+stamp-h*
+*.la
+Makefile
+libtool
+*.tar.bz2
+.deps/*
+.libs/*
+*/.deps/*
+*/.libs/*
+*.cache
+*.log
+config.h
+*.status
+opendaap.pc
