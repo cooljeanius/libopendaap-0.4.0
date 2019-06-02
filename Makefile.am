@@ -31,3 +31,9 @@ pkgconfig_DATA = opendaap.pc
 EXTRA_DIST = \
              $(man_MANS)
 
+DISTCLEANFILES = *~ autoscan.log *.tar.bz2 *.tar.gz
+
+distclean-local:
+	-rm -rfv autom4te.cache || rmdir autom4te.cache
+	-rm -rfv .deps || rmdir .deps
+.PHONY: distclean-local

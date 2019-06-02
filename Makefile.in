@@ -447,6 +447,7 @@ pkgconfig_DATA = opendaap.pc
 EXTRA_DIST = \
              $(man_MANS)
 
+DISTCLEANFILES = *~ autoscan.log *.tar.bz2 *.tar.gz
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -1016,6 +1017,7 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -1037,7 +1039,7 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/threadpool.Plo
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
-	distclean-hdr distclean-libtool distclean-tags
+	distclean-hdr distclean-libtool distclean-local distclean-tags
 
 dvi: dvi-recursive
 
@@ -1120,23 +1122,29 @@ uninstall-man: uninstall-man3
 	cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
 	dist-gzip dist-lzip dist-shar dist-tarZ dist-xz dist-zip \
 	distcheck distclean distclean-compile distclean-generic \
-	distclean-hdr distclean-libtool distclean-tags distcleancheck \
-	distdir distuninstallcheck dvi dvi-am html html-am info \
-	info-am install install-am install-data install-data-am \
-	install-dvi install-dvi-am install-exec install-exec-am \
-	install-html install-html-am install-info install-info-am \
-	install-libLTLIBRARIES install-man install-man3 \
-	install-nobase_apiheadersHEADERS install-pdf install-pdf-am \
-	install-pkgconfigDATA install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
-	pdf pdf-am ps ps-am tags tags-am uninstall uninstall-am \
-	uninstall-libLTLIBRARIES uninstall-man uninstall-man3 \
-	uninstall-nobase_apiheadersHEADERS uninstall-pkgconfigDATA
+	distclean-hdr distclean-libtool distclean-local distclean-tags \
+	distcleancheck distdir distuninstallcheck dvi dvi-am html \
+	html-am info info-am install install-am install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-libLTLIBRARIES install-man \
+	install-man3 install-nobase_apiheadersHEADERS install-pdf \
+	install-pdf-am install-pkgconfigDATA install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-am uninstall \
+	uninstall-am uninstall-libLTLIBRARIES uninstall-man \
+	uninstall-man3 uninstall-nobase_apiheadersHEADERS \
+	uninstall-pkgconfigDATA
 
 .PRECIOUS: Makefile
 
+
+distclean-local:
+	-rm -rfv autom4te.cache || rmdir autom4te.cache
+	-rm -rfv .deps || rmdir .deps
+.PHONY: distclean-local
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
