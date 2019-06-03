@@ -25,8 +25,7 @@ AC_PROG_RANLIB
 LT_INIT
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-lpthread':
-AC_CHECK_LIB([pthread],[main])dnl
+AC_CHECK_LIB([pthread],[pthread_cond_timedwait])dnl
 
 # Checks for header files.
 AC_DEFUN([AC_REQUIRE_HEADER_STDC],[
@@ -38,48 +37,59 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h sys/socket.h \
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_BIGENDIAN
+AC_C_CHAR_UNSIGNED
 AC_C_CONST
 AC_TYPE_PID_T
 AC_TYPE_INT8_T
 AC_TYPE_INT16_T
 AC_TYPE_INT32_T
 AC_TYPE_INT64_T
+AC_TYPE_INTPTR_T
 AC_TYPE_SIZE_T
 AC_TYPE_UINT8_T
 AC_TYPE_UINT16_T
 AC_TYPE_UINT32_T
 AC_TYPE_UINT64_T
+AC_TYPE_UINTPTR_T
 
 AC_CHECK_TYPES([int64_t, int32_t,
-                int16_t, int8_t],,
-                AC_MSG_ERROR("signed fixed size integers not found"))dnl
+                int16_t, int8_t],[],
+               [AC_MSG_ERROR(["signed fixed size integers not found"])])dnl
 
 AC_CHECK_TYPES([u_int64_t, u_int32_t,
-                u_int16_t, u_int8_t],,
-                [have_u_intxx_t=no])dnl
+                u_int16_t, u_int8_t],[],
+               [have_u_intxx_t=no])dnl
 
-if test "$have_u_intxx_t" = "no"; then
+if test "x${have_u_intxx_t}" = "xno"; then
     AC_CHECK_TYPES([uint64_t, uint32_t,
-                    uint16_t, uint8_t],,
-                    AC_MSG_ERROR("unsigned fixed size integers not found"))
+                    uint16_t, uint8_t],[],
+                   [AC_MSG_ERROR(["unsigned fixed size integers not found"])])
 fi
 
-AC_CACHE_CHECK([whether the compiler supports __alignof__], ac_cv_c_alignof,
-    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[int alignint = __alignof__(int)]])],[ac_cv_c_alignof="yes"],[ac_cv_c_alignof="no"]))dnl
+AC_CACHE_CHECK([whether the compiler supports __alignof__],[ac_cv_c_alignof],
+    [AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]],
+    [[int alignint = __alignof__(int)]])],
+    [ac_cv_c_alignof="yes"],[ac_cv_c_alignof="no"])])dnl
 
-if test "$ac_cv_c_alignof" = "yes"; then
-    AC_DEFINE(HAVE___ALIGNOF__, 1, [Define if the compiler supports __alignof__])
+if test "x${ac_cv_c_alignof}" = "xyes"; then
+    AC_DEFINE([HAVE___ALIGNOF__],[1],
+              [Define if the compiler supports __alignof__])
 fi
+
+if test "x${acl_cv_wp}" = "x"; then
+  test -z "${acl_cv_wp}" && export acl_cv_wp='-Wp,'
+fi
+AC_SUBST([acl_cv_wp])dnl
 
 # Checks for library functions.
 AC_FUNC_MALLOC
-AC_CHECK_FUNCS([bzero gettimeofday memset select socket strchr strdup \
-                strerror strstr])dnl
+AC_CHECK_FUNCS([bzero gettimeofday memset select socket strchr strcmp strdup \
+                strerror strlen strncpy strstr])dnl
 
 dnl# Output.
 AC_CONFIG_FILES([Makefile
-           debug/Makefile
-           authentication/Makefile
-           mdnsd/Makefile
-           opendaap.pc])
+                 debug/Makefile
+                 authentication/Makefile
+                 mdnsd/Makefile
+                 opendaap.pc])
 AC_OUTPUT

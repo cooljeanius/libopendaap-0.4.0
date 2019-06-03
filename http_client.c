@@ -842,6 +842,7 @@ void httpwatch_callback(int fd, void *ctx)
     void (*cb)(void *ctx);
     void *cb_ctx;
 
+    (void)fd;
     ts_mutex_lock(watch_item->parent->mutex);
     cb = watch_item->callback;
     cb_ctx = watch_item->cb_context;

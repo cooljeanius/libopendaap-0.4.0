@@ -246,6 +246,7 @@ abs_top_srcdir = @abs_top_srcdir@
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
+acl_cv_wp = @acl_cv_wp@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -298,7 +299,9 @@ top_srcdir = @top_srcdir@
 noinst_LTLIBRARIES = libauthentication.la
 libauthentication_la_SOURCES = hasher.c md5.c hasher.h md5.h
 AM_CFLAGS = -Wall -Wextra
-AM_CPPFLAGS = -I.. -I$(srcdir) -I$(srcdir)/..
+AM_CPPFLAGS = ${acl_cv_wp}-I.. ${acl_cv_wp}-I$(srcdir) \
+  ${acl_cv_wp}-I$(srcdir)/..
+
 DISTCLEANFILES = .DS_Store
 all: all-am
 

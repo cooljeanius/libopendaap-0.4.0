@@ -27,6 +27,9 @@
 #include <ctype.h>
 #include "debug.h"
 
+#include <stdlib.h>
+#include <string.h>
+
 #define DEFAULT_DEBUG_CHANNEL "debug"
 
 static int tracesEnabled = 0;

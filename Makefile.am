@@ -1,6 +1,6 @@
 SUBDIRS = authentication debug mdnsd
 ACLOCAL_AMFLAGS = -I m4
-AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/debug
+AM_CPPFLAGS = ${acl_cv_wp}-I$(srcdir) ${acl_cv_wp}-I$(srcdir)/debug
 AM_CFLAGS = -Wall -Wextra -D_GNU_SOURCE
 
 lib_LTLIBRARIES = libopendaap.la

@@ -139,6 +139,7 @@ static int fd_event_getfd(fd_event *event)
 static void fd_event_handle(int fd, void *ctx)
 {
     fd_event *event = (fd_event*)ctx;
+    (void)fd;
     if (!event->manual_reset)
         fd_event_reset(event);
 
