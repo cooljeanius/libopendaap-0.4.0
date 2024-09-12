@@ -16,13 +16,30 @@ AC_CONFIG_HEADERS([config.h])dnl
 
 # Checks for programs.
 AM_PROG_AR
+if test "x${AR}" = "x"; then
+  test -z "${AR}" || unset AR
+  AC_CHECK_TOOLS([AR],[ar gar])dnl
+  ## might want to switch around these checks...
+  if test "x${ac_cv_prog_AR}" = "x"; then
+    test -z "${ac_cv_prog_AR}" || unset ac_cv_prog_AR
+    m4_ifdef([AC_PROG_AR],[
+      AC_PROG_AR
+    ],[
+      test -x "`which ar`" && echo "first ar in path is `which ar`"
+    ])
+  fi
+else
+  test -n "${AR}" && export AR
+fi
 AC_DEFUN([AC_REQUIRE_CC],[
   AC_REQUIRE([AC_PROG_CC])dnl
+  AC_REQUIRE([AC_PROG_CPP])dnl
 ])dnl
 AC_REQUIRE_CC
 AC_PROG_INSTALL
 AC_PROG_RANLIB
 LT_INIT
+LT_LANG([C])dnl
 
 # Checks for libraries.
 AC_CHECK_LIB([pthread],[pthread_cond_timedwait])dnl
@@ -33,7 +50,12 @@ AC_DEFUN([AC_REQUIRE_HEADER_STDC],[
 ])dnl
 AC_REQUIRE_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h sys/socket.h \
-                  sys/time.h])dnl
+                  sys/time.h tcpd.h])dnl
+
+if test "x${ac_cv_header_unistd_h}" = "x"; then
+  test -z "${ac_cv_header_unistd_h}" || unset ac_cv_header_unistd_h
+  AC_CHECK_HEADERS([unistd.h]) # (keep autoscan happy)
+fi
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_BIGENDIAN

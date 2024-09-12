@@ -6,7 +6,7 @@
 /* Define to 1 if you have the <arpa/inet.h> header file. */
 #undef HAVE_ARPA_INET_H
 
-/* Define to 1 if you have the `bzero' function. */
+/* Define to 1 if you have the 'bzero' function. */
 #undef HAVE_BZERO
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
@@ -15,38 +15,35 @@
 /* Define to 1 if you have the <fcntl.h> header file. */
 #undef HAVE_FCNTL_H
 
-/* Define to 1 if you have the `gettimeofday' function. */
+/* Define to 1 if you have the 'gettimeofday' function. */
 #undef HAVE_GETTIMEOFDAY
 
-/* Define to 1 if the system has the type `int16_t'. */
+/* Define to 1 if the system has the type 'int16_t'. */
 #undef HAVE_INT16_T
 
-/* Define to 1 if the system has the type `int32_t'. */
+/* Define to 1 if the system has the type 'int32_t'. */
 #undef HAVE_INT32_T
 
-/* Define to 1 if the system has the type `int64_t'. */
+/* Define to 1 if the system has the type 'int64_t'. */
 #undef HAVE_INT64_T
 
-/* Define to 1 if the system has the type `int8_t'. */
+/* Define to 1 if the system has the type 'int8_t'. */
 #undef HAVE_INT8_T
 
-/* Define to 1 if the system has the type `intptr_t'. */
+/* Define to 1 if the system has the type 'intptr_t'. */
 #undef HAVE_INTPTR_T
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
-/* Define to 1 if you have the `pthread' library (-lpthread). */
+/* Define to 1 if you have the 'pthread' library (-lpthread). */
 #undef HAVE_LIBPTHREAD
 
-/* Define to 1 if your system has a GNU libc compatible `malloc' function, and
+/* Define to 1 if your system has a GNU libc compatible 'malloc' function, and
    to 0 otherwise. */
 #undef HAVE_MALLOC
 
-/* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
-
-/* Define to 1 if you have the `memset' function. */
+/* Define to 1 if you have the 'memset' function. */
 #undef HAVE_MEMSET
 
 /* Define to 1 if you have the <netdb.h> header file. */
@@ -55,28 +52,31 @@
 /* Define to 1 if you have the <netinet/in.h> header file. */
 #undef HAVE_NETINET_IN_H
 
-/* Define to 1 if you have the `select' function. */
+/* Define to 1 if you have the 'select' function. */
 #undef HAVE_SELECT
 
-/* Define to 1 if you have the `socket' function. */
+/* Define to 1 if you have the 'socket' function. */
 #undef HAVE_SOCKET
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
 
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
+
 /* Define to 1 if you have the <stdlib.h> header file. */
 #undef HAVE_STDLIB_H
 
-/* Define to 1 if you have the `strchr' function. */
+/* Define to 1 if you have the 'strchr' function. */
 #undef HAVE_STRCHR
 
-/* Define to 1 if you have the `strcmp' function. */
+/* Define to 1 if you have the 'strcmp' function. */
 #undef HAVE_STRCMP
 
-/* Define to 1 if you have the `strdup' function. */
+/* Define to 1 if you have the 'strdup' function. */
 #undef HAVE_STRDUP
 
-/* Define to 1 if you have the `strerror' function. */
+/* Define to 1 if you have the 'strerror' function. */
 #undef HAVE_STRERROR
 
 /* Define to 1 if you have the <strings.h> header file. */
@@ -85,13 +85,13 @@
 /* Define to 1 if you have the <string.h> header file. */
 #undef HAVE_STRING_H
 
-/* Define to 1 if you have the `strlen' function. */
+/* Define to 1 if you have the 'strlen' function. */
 #undef HAVE_STRLEN
 
-/* Define to 1 if you have the `strncpy' function. */
+/* Define to 1 if you have the 'strncpy' function. */
 #undef HAVE_STRNCPY
 
-/* Define to 1 if you have the `strstr' function. */
+/* Define to 1 if you have the 'strstr' function. */
 #undef HAVE_STRSTR
 
 /* Define to 1 if you have the <sys/socket.h> header file. */
@@ -106,34 +106,37 @@
 /* Define to 1 if you have the <sys/types.h> header file. */
 #undef HAVE_SYS_TYPES_H
 
-/* Define to 1 if the system has the type `uint16_t'. */
+/* Define to 1 if you have the <tcpd.h> header file. */
+#undef HAVE_TCPD_H
+
+/* Define to 1 if the system has the type 'uint16_t'. */
 #undef HAVE_UINT16_T
 
-/* Define to 1 if the system has the type `uint32_t'. */
+/* Define to 1 if the system has the type 'uint32_t'. */
 #undef HAVE_UINT32_T
 
-/* Define to 1 if the system has the type `uint64_t'. */
+/* Define to 1 if the system has the type 'uint64_t'. */
 #undef HAVE_UINT64_T
 
-/* Define to 1 if the system has the type `uint8_t'. */
+/* Define to 1 if the system has the type 'uint8_t'. */
 #undef HAVE_UINT8_T
 
-/* Define to 1 if the system has the type `uintptr_t'. */
+/* Define to 1 if the system has the type 'uintptr_t'. */
 #undef HAVE_UINTPTR_T
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
-/* Define to 1 if the system has the type `u_int16_t'. */
+/* Define to 1 if the system has the type 'u_int16_t'. */
 #undef HAVE_U_INT16_T
 
-/* Define to 1 if the system has the type `u_int32_t'. */
+/* Define to 1 if the system has the type 'u_int32_t'. */
 #undef HAVE_U_INT32_T
 
-/* Define to 1 if the system has the type `u_int64_t'. */
+/* Define to 1 if the system has the type 'u_int64_t'. */
 #undef HAVE_U_INT64_T
 
-/* Define to 1 if the system has the type `u_int8_t'. */
+/* Define to 1 if the system has the type 'u_int8_t'. */
 #undef HAVE_U_INT8_T
 
 /* Define if the compiler supports __alignof__ */
@@ -163,7 +166,9 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
-/* Define to 1 if you have the ANSI C header files. */
+/* Define to 1 if all of the C89 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
 /* Version number of package */
@@ -196,12 +201,13 @@
    #define below would cause a syntax error. */
 #undef _UINT8_T
 
-/* Define to 1 if type `char' is unsigned and you are not using gcc.  */
+/* Define to 1 if type 'char' is unsigned and your compiler does not
+   predefine this macro.  */
 #ifndef __CHAR_UNSIGNED__
 # undef __CHAR_UNSIGNED__
 #endif
 
-/* Define to empty if `const' does not conform to ANSI C. */
+/* Define to empty if 'const' does not conform to ANSI C. */
 #undef const
 
 /* Define to the type of a signed integer type of width exactly 16 bits if
@@ -227,10 +233,10 @@
 /* Define to rpl_malloc if the replacement function should be used. */
 #undef malloc
 
-/* Define to `int' if <sys/types.h> does not define. */
+/* Define as a signed integer type capable of holding a process identifier. */
 #undef pid_t
 
-/* Define to `unsigned int' if <sys/types.h> does not define. */
+/* Define as 'unsigned int' if <stddef.h> doesn't define. */
 #undef size_t
 
 /* Define to the type of an unsigned integer type of width exactly 16 bits if
